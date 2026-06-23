@@ -1,129 +1,103 @@
-// Product class representing each product in the e-commerce platform
-class Product {
+import java.util.Arrays;
+import java.util.Comparator;
 
-    // Attributes of a product
+// =======================
+// PRODUCT CLASS
+// =======================
+class Product {
     int productId;
     String productName;
     String category;
 
-    // Constructor to initialize product details
     public Product(int productId, String productName, String category) {
         this.productId = productId;
         this.productName = productName;
         this.category = category;
     }
 
-    // Method to display product information
     @Override
     public String toString() {
-        return "Product ID: " + productId +
-               ", Product Name: " + productName +
-               ", Category: " + category;
+        return productId + " - " + productName + " (" + category + ")";
     }
 }
 
+// =======================
+// MAIN CLASS
+// =======================
 public class EcommerceSearch {
 
-    /*
-     * LINEAR SEARCH
-     * Searches each product one by one until the target is found.
-     * Works on both sorted and unsorted arrays.
-     */
-    public static Product linearSearch(Product[] products, int targetId) {
-
-        // Traverse the entire array
-        for (Product product : products) {
-
-            // Check if current product ID matches target ID
-            if (product.productId == targetId) {
-                return product; // Product found
+    // -----------------------
+    // LINEAR SEARCH
+    // -----------------------
+    public static Product linearSearch(Product[] products, String name) {
+        for (Product p : products) {
+            if (p.productName.equalsIgnoreCase(name)) {
+                return p;
             }
         }
-
-        // Product not found
         return null;
     }
 
-    /*
-     * BINARY SEARCH
-     * Works only on a sorted array.
-     * Repeatedly divides the search space into half.
-     */
-    public static Product binarySearch(Product[] products, int targetId) {
-
-        // Starting index
+    // -----------------------
+    // BINARY SEARCH
+    // -----------------------
+    public static Product binarySearch(Product[] products, String name) {
         int left = 0;
-
-        // Ending index
         int right = products.length - 1;
 
-        // Continue searching while valid range exists
         while (left <= right) {
+            int mid = (left + right) / 2;
 
-            // Calculate middle index
-            int mid = left + (right - left) / 2;
+            int compare = products[mid].productName.compareToIgnoreCase(name);
 
-            // If target product is found
-            if (products[mid].productId == targetId) {
+            if (compare == 0) {
                 return products[mid];
-            }
-
-            // If target ID is greater, search right half
-            if (products[mid].productId < targetId) {
+            } 
+            else if (compare < 0) {
                 left = mid + 1;
-            }
-
-            // Otherwise search left half
+            } 
             else {
                 right = mid - 1;
             }
         }
-
-        // Product not found
         return null;
     }
 
+    // =======================
+    // MAIN METHOD
+    // =======================
     public static void main(String[] args) {
 
-        /*
-         * Product array
-         * IDs are already sorted for Binary Search.
-         */
+        // Unsorted array (for Linear Search)
         Product[] products = {
             new Product(101, "Laptop", "Electronics"),
-            new Product(102, "Smartphone", "Electronics"),
-            new Product(103, "Shoes", "Fashion"),
+            new Product(102, "Shoes", "Fashion"),
+            new Product(103, "Phone", "Electronics"),
             new Product(104, "Watch", "Accessories"),
-            new Product(105, "Book", "Education")
+            new Product(105, "Bag", "Fashion")
         };
 
-        // Product ID to search
-        int targetId = 104;
+        // -----------------------
+        // LINEAR SEARCH DEMO
+        // -----------------------
+        System.out.println("🔍 LINEAR SEARCH RESULT:");
+        Product result1 = linearSearch(products, "Phone");
+        System.out.println(result1 != null ? result1 : "Not Found");
 
-        // ---------------- LINEAR SEARCH ----------------
+        // -----------------------
+        // SORT ARRAY FOR BINARY SEARCH
+        // -----------------------
+        Product[] sortedProducts = Arrays.copyOf(products, products.length);
 
-        Product linearResult = linearSearch(products, targetId);
+        Arrays.sort(sortedProducts, Comparator.comparing(
+            p -> p.productName.toLowerCase()
+        ));
 
-        System.out.println("=== Linear Search ===");
-
-        if (linearResult != null) {
-            System.out.println("Product Found:");
-            System.out.println(linearResult);
-        } else {
-            System.out.println("Product Not Found");
-        }
-
-        // ---------------- BINARY SEARCH ----------------
-
-        Product binaryResult = binarySearch(products, targetId);
-
-        System.out.println("\n=== Binary Search ===");
-
-        if (binaryResult != null) {
-            System.out.println("Product Found:");
-            System.out.println(binaryResult);
-        } else {
-            System.out.println("Product Not Found");
-        }
+        // -----------------------
+        // BINARY SEARCH DEMO
+        // -----------------------
+        System.out.println("\n🔍 BINARY SEARCH RESULT:");
+        Product result2 = binarySearch(sortedProducts, "Phone");
+        System.out.println(result2 != null ? result2 : "Not Found");
     }
 }
