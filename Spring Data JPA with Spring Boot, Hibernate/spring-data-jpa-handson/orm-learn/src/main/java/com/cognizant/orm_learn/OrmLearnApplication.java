@@ -1,4 +1,5 @@
 package com.cognizant.ormlearn;
+//import all packages
 
 import com.cognizant.ormlearn.model.Country;
 import com.cognizant.ormlearn.service.CountryService;
@@ -22,6 +23,7 @@ public class OrmLearnApplication {
 
 		countryService = context.getBean(CountryService.class);
 		testGetAllCountries();
+
 	}
 
 	private static void testGetAllCountries() {
