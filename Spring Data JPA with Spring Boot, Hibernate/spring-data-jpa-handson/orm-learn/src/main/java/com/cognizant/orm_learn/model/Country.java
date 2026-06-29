@@ -1,4 +1,5 @@
 package com.cognizant.ormlearn.model;
+//this is the model class for Country entity. It maps to the country table in the database.
 
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
