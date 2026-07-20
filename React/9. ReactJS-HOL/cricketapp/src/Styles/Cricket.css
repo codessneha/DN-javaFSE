@@ -1,0 +1,63 @@
+body{
+    font-family: Arial, Helvetica, sans-serif;
+    background-color:#f4f7fc;
+    margin:0;
+    padding:30px;
+}
+
+.container{
+    max-width:900px;
+    margin:auto;
+}
+
+.title{
+    text-align:center;
+    color:#1f4e79;
+    margin-bottom:25px;
+}
+
+.card{
+    background:white;
+    border-radius:10px;
+    padding:20px;
+    margin-bottom:25px;
+    box-shadow:0 4px 12px rgba(0,0,0,0.15);
+}
+
+.card h2{
+    color:#1565c0;
+    border-bottom:2px solid #ddd;
+    padding-bottom:8px;
+}
+
+ul{
+    list-style:none;
+    padding:0;
+}
+
+li{
+    padding:10px;
+    margin:8px 0;
+    background:#eef5ff;
+    border-left:5px solid #1565c0;
+    border-radius:6px;
+    transition:0.3s;
+}
+
+li:hover{
+    background:#dbe9ff;
+    transform:translateX(5px);
+}
+
+.low-score{
+    border-left:5px solid crimson;
+    background:#ffeaea;
+}
+
+.team-title{
+    color:#2e7d32;
+}
+
+.merge-title{
+    color:#ef6c00;
+}
