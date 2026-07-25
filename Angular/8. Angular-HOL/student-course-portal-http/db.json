@@ -1,0 +1,69 @@
+{
+  "courses": [
+    {
+      "id": "1",
+      "name": "Angular",
+      "code": "CS101",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": "2",
+      "name": "Java",
+      "code": "CS102",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "id": "3",
+      "name": "Python",
+      "code": "CS103",
+      "credits": 4,
+      "gradeStatus": "passed"
+    },
+    {
+      "id": "4",
+      "name": "React",
+      "code": "CS104",
+      "credits": 2,
+      "gradeStatus": "failed"
+    },
+    {
+      "id": "5",
+      "name": "NodeJS",
+      "code": "CS105",
+      "credits": 3,
+      "gradeStatus": "pending"
+    },
+    {
+      "name": "Spring Boot",
+      "code": "CS106",
+      "credits": 4,
+      "gradeStatus": "pending",
+      "id": "NEtYRlrjvGk"
+    }
+  ],
+  "students": [
+    {
+      "id": "1",
+      "name": "Sneha"
+    },
+    {
+      "id": "2",
+      "name": "Rahul"
+    }
+  ],
+  "enrollments": [
+    {
+      "id": "1",
+      "courseId": 1,
+      "studentId": 1
+    },
+    {
+      "id": "2",
+      "courseId": 2,
+      "studentId": 2
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}

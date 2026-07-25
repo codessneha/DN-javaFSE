@@ -1,0 +1,32 @@
+<button (click)="addCourse()">
+
+Add Course
+
+</button>
+
+<br><br>
+<h2>Course List</h2>
+
+<p *ngIf="isLoading">
+
+Loading...
+
+</p>
+
+<p *ngIf="errorMessage">
+
+{{ errorMessage }}
+
+</p>
+
+<div *ngFor="let course of courses">
+
+<h3>{{ course.name }}</h3>
+
+<p>{{ course.code }}</p>
+
+<p>{{ course.credits }}</p>
+
+<hr>
+
+</div>
