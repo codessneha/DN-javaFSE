@@ -1,0 +1,9 @@
+<button
+*ngIf="enrolledIds$ | async as enrolledIds"
+(click)="toggleEnrollment(course.id, enrolledIds)">
+
+{{ enrolledIds.includes(course.id)
+? 'Unenroll'
+: 'Enroll' }}
+
+</button>
