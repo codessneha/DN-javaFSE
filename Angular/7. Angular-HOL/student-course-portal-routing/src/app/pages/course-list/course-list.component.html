@@ -1,0 +1,28 @@
+<h2>Courses</h2>
+
+<input
+type="text"
+[(ngModel)]="searchTerm"
+placeholder="Search Course">
+
+<button
+(click)="searchCourses()">
+Search
+</button>
+
+<hr>
+
+<div *ngFor="let course of filteredCourses">
+
+<h3>{{course.name}}</h3>
+
+<p>{{course.code}}</p>
+
+<button
+(click)="openCourse(course)">
+View Details
+</button>
+
+<hr>
+
+</div>
